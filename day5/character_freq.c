@@ -28,7 +28,7 @@ int main()
                 state = OUT;
             }
         }
-        else 
+        else
         {
             if (state == OUT)
             {
