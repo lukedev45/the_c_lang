@@ -2,7 +2,7 @@
 
 #define MAXLINE 100
 
-int getline(char line[], int maxline);
+int my_getline(char line[], int maxline);
 void copy(char to[], char from[]);
 
 // Print the longest input line
@@ -14,7 +14,7 @@ int main(void)
   char longest[MAXLINE];
   
   max = 0;
-  while (line = getline(line, MAXLINE))
+  while (len = my_getline(line, MAXLINE))
   {
     if (len > max)
     {
@@ -29,7 +29,7 @@ int main(void)
   return 0;
 }
 
-int getline(char s[], int lim)
+int my_getline(char s[], int lim)
 {
   int c, i;
 
