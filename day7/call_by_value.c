@@ -3,56 +3,43 @@
 #define MAXLINE 100
 
 int my_getline(char line[], int maxline);
-void copy(char to[], char from[]);
 
-// Print the longest input line
+// Print the length and text of each input line
 int main(void)
 {
   int len;
-  int max;
   char line[MAXLINE];
-  char longest[MAXLINE];
   
-  max = 0;
-  while (len = my_getline(line, MAXLINE))
+  while ((len = my_getline(line, MAXLINE)) > 0)
   {
-    if (len > max)
-    {
-      max = len;
-      copy(longest,line);
-    }
-    if (max > 0)
-    {
-      printf("%s\n", longest);
-    }
+    printf("%d: %s", len, line);
   }
   return 0;
 }
 
 int my_getline(char s[], int lim)
 {
-  int c, i;
-
-  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+  int c, i, len;
+  i = 0;
+  len = 0;
+  while ((c = getchar()) != EOF && c != '\n' && i < lim - 1)
   {
     s[i] = c;
+    i++;
+    len++;
   }
   if (c == '\n')
   {
     s[i] = c;
-    ++i;
+    i++;
+    len++;
   }
   s[i] = '\0';
-  return i;
-}
-
-void copy(char to[], char from[])
-{
-  int i;
-
-  i = 0;
-  while ((to[i] = from[i]) != '\0')
-  {
-    ++i;
-  }
+  // // continue reading to count full length
+  // while (c != EOF && c != '\n')
+  // {
+  //   c = getchar();
+  //   if (c != EOF && c != '\n') len++;
+  // }
+  return len;
 }
