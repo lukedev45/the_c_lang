@@ -32,14 +32,13 @@ int my_getline(char s[], int lim)
   {
     s[i] = c;
     i++;
-    len++;
   }
   s[i] = '\0';
   // // continue reading to count full length
-  // while (c != EOF && c != '\n')
-  // {
-  //   c = getchar();
-  //   if (c != EOF && c != '\n') len++;
-  // }
+  while (c != EOF && c != '\n')
+  {
+    c = getchar();
+    if (c != EOF && c != '\n') len++;
+  }
   return len;
 }
